@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/React-complete-guide/event-manager/static/css/main.ec90e8b8.css",
+    "main.js": "/React-complete-guide/event-manager/static/js/main.791ab2c1.js",
+    "index.html": "/React-complete-guide/event-manager/index.html",
+    "main.ec90e8b8.css.map": "/React-complete-guide/event-manager/static/css/main.ec90e8b8.css.map",
+    "main.791ab2c1.js.map": "/React-complete-guide/event-manager/static/js/main.791ab2c1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec90e8b8.css",
+    "static/js/main.791ab2c1.js"
+  ]
+}
