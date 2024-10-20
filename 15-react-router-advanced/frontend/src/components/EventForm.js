@@ -1,6 +1,7 @@
 import { Form, useActionData, useNavigate, useNavigation, json, redirect } from 'react-router-dom';
 
 import classes from './EventForm.module.css';
+import { mockEventApi } from '../mockEvent';
 
 function EventForm({ method, event }) {
   const data = useActionData()
@@ -57,28 +58,36 @@ export async function action({ request, params }) {
       description: data.get('description')
   }
 
-  let url = 'http://localhost:8080/events'
+  // let url = 'http://localhost:8080/events'
 
+  // if (method === 'PATCH') {
+  //   const eventId = params.eventId
+  //   url += '/' + eventId
+  // }
+
+  // const response = await fetch(url, {
+  //     method: method,
+  //     headers: {
+  //         'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(eventData)
+  // })
+
+  let response
   if (method === 'PATCH') {
     const eventId = params.eventId
-    url += '/' + eventId
+    response = await mockEventApi.updateEvent(eventId, eventData)
+  } else {
+    response = await mockEventApi.addEvent(eventData)
   }
-
-  const response = await fetch(url, {
-      method: method,
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(eventData)
-  })
 
   if (response.status === 422) {
       return response
   }
 
-  if (!response.ok) {
-      throw json({ message: 'Could not save event.' }, {status: 500})
-  }
+  // if (!response.ok) {
+  //     throw json({ message: 'Could not save event.' }, {status: 500})
+  // }
 
   return redirect('/events')
 }
