@@ -34,7 +34,7 @@ export default function NewProject({ onAdd, onCancel }) {
             <p className="text-stone-600 mb-4">Oops... Looks like you forgot to enter a value.</p>
             <p className="text-stone-600 mb-4">Please make sure you provide a valid value for every input field.</p>
         </Modal>
-        <div className="w-[35rem] mt-16">
+        <div className="w-full max-w-2xl mx-auto mt-8 md:mt-16 mb-8 px-4">
             <menu className="flex items-center justify-end gap-4 my-4">
                 <li>
                     <button className="text-stone-800 hover:text-stone-950" onClick={onCancel}>
